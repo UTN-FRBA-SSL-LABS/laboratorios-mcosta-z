@@ -1,6 +1,6 @@
 #include "String.h"
 
-/*
+/*  
  * String.c — Implementacion de la biblioteca String
  *
  * REGLAS:

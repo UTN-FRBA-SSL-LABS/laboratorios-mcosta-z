@@ -277,7 +277,7 @@ Los tests de `IsEmpty` ya están activos en `StringTest.c`. Corré `make test` y
 
 **P1** — `IsEmpty` podría haberse escrito también como `return s[0] == '\0'`. ¿Son equivalentes? ¿Por qué?
 
-> R:
+> R: Si, son equivalentes. El caracter '\0' es el caracter de cierre de la cadena, por lo tanto si solo contiene ese caracter el string está vacío
 
 ---
 
@@ -328,11 +328,11 @@ make test
 
 **P2** — ¿Qué hace `s + 1`? ¿Por qué avanza al siguiente carácter y no al siguiente byte?
 
-> R:
+> R:por que 's' es un puntero, cuando hacemos 's + 1' va a la siguiente direccion de memoria
 
 **P3** — Si llamaras a `GetLength(NULL)`, ¿qué pasaría? ¿Por qué las precondiciones del contrato dicen `s != NULL`?
 
-> R:
+> R: Puede ocurrir una falla de segmentación, al punto ser invalido 
 
 ```
 GETLENGTH_PASA=

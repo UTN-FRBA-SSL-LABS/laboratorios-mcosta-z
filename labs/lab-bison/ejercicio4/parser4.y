@@ -27,15 +27,12 @@ input:
  * y continúa parseando la siguiente línea.
  * Llamar a yyerrok dentro de la acción resetea el estado de error interno.
  *
- * TODO 1 — Agregar en la producción 'linea' una regla de recuperación de errores.
- *   Cuando el parser encuentra tokens inválidos, descarta hasta el '\n'
- *   y retoma el parseo de la siguiente línea.
- *
- *   Agregá esta alternativa dentro de 'linea':
- *     | error '\n'  { yyerrok; printf("Error: sintaxis invalida\n"); }
+ * La alternativa error '\n' descarta tokens inválidos hasta el siguiente
+ * salto de línea y yyerrok permite continuar parseando.
  */
 linea:
     exp '\n'    { printf("= %d\n", $1); }
+  | error '\n'  { yyerrok; printf("Error: sintaxis invalida\n"); }
   ;
 
 exp:
